@@ -25,3 +25,7 @@ hs_err_pid*
 #Intellj files
 out/
 .idea
+
+#Gradle files
+.gradle
+build/
