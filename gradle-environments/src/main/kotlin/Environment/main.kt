@@ -19,7 +19,7 @@ fun main (args: Array<String>) {
     val server = embeddedServer(Netty, port = 8000) {
         routing {
             get("/") {
-                call.respondText("Welcome to Environments Dashbard")
+                call.respondText("Testing Ktor for ${env.name}")
             }
         }
     }

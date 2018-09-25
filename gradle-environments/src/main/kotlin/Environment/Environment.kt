@@ -1,14 +1,22 @@
 package Environment
 
-class Environment (
-        private var name: String = "",
-        private var status: Int = 0,
-        private var link: String = "",
-        private var ip: String = "",
-        private var description: String? = "",
-        private var dataBaseIp: List<String>? = null) {
+import kotliquery.Row
 
-    init {
-        println("Creating $name environment")
+data class Environment (
+        val name: String = "",
+        val status: Int = 0,
+        val link: String = "",
+        val ip: String = "",
+        val description: String? = "",
+        val dataBaseIp: List<String>? = null) {
+
+    val toEnvironment: (Row) -> Environment = { row ->
+        Environment(
+                row.string("name"),
+                row.int("status"),
+                row.string("link"),
+                row.string("ip"),
+                row.string("description"))
     }
+
 }
