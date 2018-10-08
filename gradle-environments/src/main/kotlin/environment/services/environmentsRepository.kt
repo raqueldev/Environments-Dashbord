@@ -9,10 +9,13 @@ import org.jetbrains.exposed.sql.transactions.transaction
 class EnvironmentsRepository {
 
     fun getAllEnvironments(): List<EnvironmentResponse> {
+
         var environments: List<EnvironmentResponse> = mutableListOf()
+
         transaction {
             environments = Environments.selectAll().map { toEnvironment(it) }
         }
+
         return environments
     }
 
