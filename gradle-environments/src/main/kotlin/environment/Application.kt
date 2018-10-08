@@ -11,6 +11,7 @@ import io.ktor.jackson.jackson
 import io.ktor.routing.Routing
 import environment.services.DatabaseConnection
 import environment.web.environments
+import io.ktor.features.StatusPages
 
 
 fun Application.main() {
@@ -33,6 +34,7 @@ fun Application.main() {
             }
         }
 
+        install(StatusPages)
         install(Routing) {
             environments()
         }
